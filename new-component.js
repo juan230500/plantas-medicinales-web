@@ -5,10 +5,7 @@ const file = process.argv[3]; //"MyHead3";
 const jsText = `
 import styled from "styled-components";
 
-
-
 const Div = styled.div\`\`;
-
 
 const ${file} = (props) => {
     return (
@@ -21,10 +18,10 @@ const ${file} = (props) => {
   export default ${file};
 `;
 
-fs.mkdir(`${path}/${file}/`, { recursive: true }, function (err) {
+fs.mkdir(`${path}/`, { recursive: true }, function (err) {
   if (err) {
     return console.log(err);
   }
-  fs.writeFile(`${path}/${file}/${file}.js`, jsText, (err) => {});
+  fs.writeFile(`${path}/${file}.js`, jsText, (err) => {});
   console.log("The file was saved!");
 });

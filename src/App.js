@@ -1,13 +1,36 @@
 import "./App.css";
-import Header from "./components/Header/Header";
-import Section from "./components/UI/Section/Section";
+import styled from "styled-components";
+import { LAYOUT } from "./Constants";
+import intro from "./assets/videos/intro.mp4";
+import flowers from "./assets/images/flowers.jpeg";
+
+import LandingPage from "./containers/LandingPage";
+import InfoPage from "./containers/InfoPage";
+import ContactPage from "./containers/ContactPage";
+import NavBar from "./components/UI/NavBar";
+import { Route, BrowserRouter } from "react-router-dom";
+
+const Video = styled.video`
+  width: 50%;
+  border-radius: ${LAYOUT.borderRadius};
+`;
 
 const App = (props) => {
   return (
-    <div>
-      <Header></Header>
-      <Section title="Quienes somos"></Section>
-    </div>
+    <BrowserRouter>
+      <div>
+        <NavBar></NavBar>
+        <Route path="/" exact>
+          <LandingPage></LandingPage>
+        </Route>
+        <Route path="/about">
+          <InfoPage></InfoPage>
+        </Route>
+        <Route path="/contact">
+          <ContactPage></ContactPage>
+        </Route>
+      </div>
+    </BrowserRouter>
   );
 };
 
