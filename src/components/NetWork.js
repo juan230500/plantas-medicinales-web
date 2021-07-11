@@ -9,17 +9,18 @@ import {
 
 const Div = styled.div`
   border-radius: 50%;
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
   background-color: ${COLORS.primary};
+  color: ${COLORS.white};
   border: 1px solid ${COLORS.primary};
-  color: ${COLORS.black};
   display: flex;
   box-shadow: ${LAYOUT.StdShadow};
 
   &:hover {
     background-color: ${COLORS.white};
     color: ${COLORS.primary};
+    border: 1px solid ${COLORS.white};
     cursor: pointer;
   }
 

@@ -4,7 +4,17 @@ import img1 from "../assets/images/Info/img1.jpeg";
 import img2 from "../assets/images/Info/img2.jpeg";
 import img3 from "../assets/images/Info/img3.jpeg";
 import img4 from "../assets/images/Info/img4.jpeg";
-import img5 from "../assets/images/Info/img5.jpeg";
+//import img5 from "../assets/images/Info/img5.jpeg";
+import intro from "../assets/videos/intro.mp4";
+
+const Video = styled.video`
+  width: 450px;
+  border-radius: ${LAYOUT.borderRadius};
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+`;
 
 const Div = styled.div`
   padding: 32px 10%;
@@ -15,6 +25,11 @@ const Div = styled.div`
 
   p {
     text-align: justify;
+  }
+
+  ul,
+  ol {
+    overflow: hidden;
   }
 `;
 
@@ -36,60 +51,55 @@ const Img = styled.img`
 const InfoPage = (props) => {
   return (
     <Div>
-      <section>
-        <h1>Quienes somos</h1>
-        <p>
-          Manú es una empresa familiar liderada por una mujer. Nuestras
-          plantaciones están ubicadas en Cartago y la finca principal está en
-          Cot de Oreamuno. Allí se concentra la principal producción de
-          Manzanilla y Romero, con una capacidad de producción de 45 toneladas
-          anuales de manzanilla fresca. Todo el proceso es amigable con el
-          ambiente y totalmente orgánico.
-        </p>
-        <Img left src={img1}></Img>
-        <p>
-          Actualmente contamos con una colección de 26 especies de plantas
-          medicinales en volúmenes menores, las cuales sirven para abastecer el
-          mercado nacional.
-        </p>
-        <p>
-          Esperamos que estos productos aporten bienestar a todos nuestros
-          clientes. En el cuidado de su cuerpo, sanándolo y alimentándose con lo
-          que la tierra nos da, esto y ser amigables con el medio ambiente, esa
-          es nuestra preocupación diaria. Y por ese motivo constantemente
-          estamos en formación y capacitación, para poder darles lo mejor.
-        </p>
-      </section>
+      <Video src={intro} controls></Video>
+      <h1>Quienes somos</h1>
+      <p>
+        Manú es una empresa familiar liderada por una mujer. Nuestras
+        plantaciones están ubicadas en Cartago y la finca principal está en Cot
+        de Oreamuno. Allí se concentra la principal producción de Manzanilla y
+        Romero, con una capacidad de producción de 45 toneladas anuales de
+        manzanilla fresca. Todo el proceso es amigable con el ambiente y
+        totalmente orgánico.
+      </p>
+      <Img left src={img1}></Img>
+      <p>
+        Actualmente contamos con una colección de 26 especies de plantas
+        medicinales en volúmenes menores, las cuales sirven para abastecer el
+        mercado nacional.
+      </p>
+      <p>
+        Esperamos que estos productos aporten bienestar a todos nuestros
+        clientes. En el cuidado de su cuerpo, sanándolo y alimentándose con lo
+        que la tierra nos da, esto y ser amigables con el medio ambiente, esa es
+        nuestra preocupación diaria. Y por ese motivo constantemente estamos en
+        formación y capacitación, para poder darles lo mejor.
+      </p>
 
-      <section>
-        <h1>Historia</h1>
-        <p>
-          Nuestra empresa nació en el 2018 por el deseo de una familia de tener
-          su propio negocio, en un área productiva de tanta honra y tan
-          gratificante como lo es la agricultura. Así este proyecto encabezado
-          por Elsa Villalobos nuestra Gerente General,empezó a ver la luz.
-        </p>
-        <Img right src={img2}></Img>
-        <p>
-          La historia empezó con la investigación necesaria de la factibilidad
-          de que en Costa Rica se pudiera cosechar y exportar toda la gama de
-          plantas medicinales que el mercado nacional e internacional requiere.
-        </p>
-        <p>
-          Al validar la factibilidad se comenzó la colección de diferentes
-          especies de plantas medicinales, Y paralelo a esto la búsqueda de una
-          finca donde poder sembrar en volumen, y la escogencia de una o dos
-          especies que fueran bandera para poder canalizar nuestros esfuerzos
-          económicos y físicos. En este punto se eligió la Manzanilla
-          (Chamomile) y el Romero, estos por tener ya un mercado definido y una
-          fuerte presencia en este, lo que nos ha ayudado a consolidar el
-          mercado nacional. Aun así contamos con todas las demás especies de
-          plantas medicinales pero en menor volumen.
-        </p>
-      </section>
-
+      <h1>Historia</h1>
+      <p>
+        Nuestra empresa nació en el 2018 por el deseo de una familia de tener su
+        propio negocio, en un área productiva de tanta honra y tan gratificante
+        como lo es la agricultura. Así este proyecto encabezado por Elsa
+        Villalobos nuestra Gerente General,empezó a ver la luz.
+      </p>
+      <Img right src={img2}></Img>
+      <p>
+        La historia empezó con la investigación necesaria de la factibilidad de
+        que en Costa Rica se pudiera cosechar y exportar toda la gama de plantas
+        medicinales que el mercado nacional e internacional requiere.
+      </p>
+      <p>
+        Al validar la factibilidad se comenzó la colección de diferentes
+        especies de plantas medicinales, Y paralelo a esto la búsqueda de una
+        finca donde poder sembrar en volumen, y la escogencia de una o dos
+        especies que fueran bandera para poder canalizar nuestros esfuerzos
+        económicos y físicos. En este punto se eligió la Manzanilla (Chamomile)
+        y el Romero, estos por tener ya un mercado definido y una fuerte
+        presencia en este, lo que nos ha ayudado a consolidar el mercado
+        nacional. Aun así contamos con todas las demás especies de plantas
+        medicinales pero en menor volumen.
+      </p>
       <h1>Compromisos</h1>
-
       <ul>
         <li>Erradicar la pobreza a lo interno de nuestra empresa.</li>
         <li>

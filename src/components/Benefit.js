@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { COLORS } from "../Constants";
-import { GiTreeBranch } from "react-icons/gi";
-import { FaBoxes } from "react-icons/fa";
+import { GiTeapotLeaves, GiTreeBranch } from "react-icons/gi";
+import { FaBoxes, FaHandHoldingHeart, FaRecycle } from "react-icons/fa";
 import cr_flag from "../assets/images/cr_flag.png";
 
 const Div = styled.div`
@@ -12,6 +12,7 @@ const Div = styled.div`
   align-items: center;
   color: ${COLORS.black};
   flex: 1;
+  padding: 0 64px;
 `;
 
 const IconCircle = styled.div`
@@ -28,6 +29,18 @@ const Benefit = (props) => {
   let icon = null;
 
   switch (props.icon) {
+    case "recycle":
+      icon = <FaRecycle style={iconStyle}></FaRecycle>;
+      break;
+
+    case "heart":
+      icon = <FaHandHoldingHeart style={iconStyle}></FaHandHoldingHeart>;
+      break;
+
+    case "tea":
+      icon = <GiTeapotLeaves style={iconStyle}></GiTeapotLeaves>;
+      break;
+
     case "natural":
       icon = <GiTreeBranch style={iconStyle}></GiTreeBranch>;
       break;

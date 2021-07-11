@@ -1,6 +1,8 @@
+import { useState } from "react";
 import styled from "styled-components";
-import Footer from "../components/Footer";
 import { COLORS, LAYOUT } from "../Constants";
+
+import emailjs from "emailjs-com";
 
 const Div = styled.div`
   display: flex;
@@ -16,6 +18,11 @@ const FormContainer = styled.div`
   width: 50%;
   border-radius: ${LAYOUT.borderRadius};
   background-color: ${COLORS.white};
+  box-shadow: ${LAYOUT.StdShadow};
+
+  @media (max-width: 768px) {
+    width: 80%;
+  }
 `;
 
 const Button = styled.button`
@@ -38,25 +45,62 @@ const FormItem = styled.div`
 `;
 
 const ContactPage = (props) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const send = () => {
+    console.log(name, email, message);
+    emailjs.init("user_FnLmUm6VqmWvPPa5JO9q3");
+    emailjs
+      .send("service_6mt7a1a", "template_asyp1ey", {
+        from_name: name,
+        message: email,
+        email: message,
+      })
+      .then((e) => console.log(e));
+    alert("Mensaje enviado correctamente");
+    setMessage("");
+  };
+
   return (
     <Div>
-      <h1>Envianos tu mensaje</h1>
       <FormContainer>
+        <h1 style={{ textAlign: "center" }}>Contactanos</h1>
         <form>
           <FormItem>
-            <label>Nombre</label>
-            <input type="text"></input>
+            <label>Tu nombre</label>
+            <input
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              type="text"
+            ></input>
           </FormItem>
           <FormItem>
-            <label>Correo</label>
-            <input type="text"></input>
+            <label>Tu correo</label>
+            <input
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              type="text"
+            ></input>
           </FormItem>
           <FormItem>
-            <label>Mensaje</label>
-            <textarea></textarea>
+            <label>Tu teléfono</label>
+            <input value={null} onChange={(e) => {}} type="text"></input>
+          </FormItem>
+          <FormItem>
+            <label>
+              Cuentanos acerca de tu negocio y cómo podemos ayudarte
+            </label>
+            <textarea
+              rows="7"
+              style={{ resize: "vertical" }}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            ></textarea>
           </FormItem>
         </form>
-        <Button onClick={() => console.log("lol")}>Enviar</Button>
+        <Button onClick={send}>Enviar</Button>
       </FormContainer>
     </Div>
   );

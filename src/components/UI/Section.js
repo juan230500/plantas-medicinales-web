@@ -9,11 +9,11 @@ const Div = styled.div`
   justify-content: center;
   background-color: ${(props) =>
     props.accent ? COLORS.primary : "transparent"};
-  padding: 32px 10%;
-  min-height: 200px;
+  padding: 16px 0;
+  margin: 32px 0;
 
   @media (max-width: 768px) {
-    padding: 32px 16px;
+    padding: 16px 16px;
   }
 `;
 
@@ -29,7 +29,8 @@ const BottonLine = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 16px;
+  font-family: "Zen Loop", cursive;
+  font-size: 40px;
   color: ${COLORS.black};
   margin: 0;
 `;
@@ -45,7 +46,7 @@ const Img = styled.img`
 
 const Section = (props) => {
   return (
-    <Div accent={props.accent}>
+    <Div top={props.top} accent={props.accent}>
       <Img src={props.bgimg}></Img>
       {props.title ? (
         <TitleContainer>

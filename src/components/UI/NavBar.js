@@ -1,53 +1,47 @@
 import styled from "styled-components";
-import { COLORS, LAYOUT } from "../../Constants";
-import { NavLink } from "react-router-dom";
-import { FaLeaf } from "react-icons/fa";
+import { COLORS } from "../../Constants";
+import { Link } from "react-router-dom";
+import logo from "../../assets/images/manu blanco.png";
 
 const Div = styled.div`
+  background-color: ${COLORS.primary};
+  padding: 8px;
   display: flex;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 8px 16px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background-color: ${COLORS.white};
-  box-shadow: ${LAYOUT.StdShadow};
-`;
+  align-items: flex-end;
+  gap: 48px;
+  img {
+    width: 200px;
+  }
 
-const Links = styled.div`
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 32px;
-`;
-
-const MyLink = styled(NavLink)`
-  text-decoration: none;
-  color: ${COLORS.black};
-
-  &.logo {
+  a {
+    color: white;
+    text-decoration: none;
     font-size: 1.5rem;
+    font-family: "Merienda", cursive;
   }
 
-  &.active {
-    font-weight: bold;
-    border-bottom: 2px solid green;
+  a.logo {
+    flex: 1;
   }
 `;
-
 const NavBar = (props) => {
   return (
     <Div>
-      <MyLink className="logo" to="/" exact>
-        <FaLeaf></FaLeaf>
-        Manú
-      </MyLink>
-      <Links>
-        <MyLink to="/about">Acerca de</MyLink>
-        <MyLink to="/contact">Contacto</MyLink>
-      </Links>
+      <Link className="logo" to="/">
+        <img src={logo} alt="logo"></img>
+      </Link>
+      <Link to="/">Plantaciones</Link>
+      <Link to="/">Té 101</Link>
+      <Link to="/contact">Ventas al por mayor</Link>
+      {/* <Link
+        onClick={() =>
+          window.open("http://manucomercial.minidux.com/", "_blank")
+        }
+      >
+        Tienda
+      </Link>
+      <Link to="/about">Nuestra Empresa</Link>
+      <Link to="/contact">Contacto</Link> */}
     </Div>
   );
 };
