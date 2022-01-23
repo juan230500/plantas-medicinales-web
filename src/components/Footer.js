@@ -5,6 +5,7 @@ const Div = styled.div`
   display: flex;
   justify-content: center;
   color: ${COLORS.white};
+  background-color: ${COLORS.primary};
 `;
 
 const Text = styled.p`

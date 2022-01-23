@@ -47,8 +47,7 @@ const BgImg = styled.img`
   filter: contrast(50%);
 `;
 
-const ProductsTitle = styled.div`
-  font-family: "Merienda", cursive;
+const ProductsTitle = styled.h1`
   text-align: center;
   color: ${COLORS.white};
   font-size: 3rem;
@@ -56,7 +55,7 @@ const ProductsTitle = styled.div`
   position: relative;
 
   @media (max-width: 768px) {
-    font-size: 3rem;
+    font-size: 1.5rem;
   }
 `;
 
@@ -65,12 +64,20 @@ const Leaf1 = styled.img`
   top: -35px;
   position: absolute;
   width: 75px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const Networks = styled.div`
   display: flex;
   justify-content: center;
   gap: 240px;
+
+  @media (max-width: 768px) {
+    gap: 32px;
+  }
 `;
 
 const Categories = styled.div`
@@ -78,14 +85,29 @@ const Categories = styled.div`
   flex-wrap: wrap;
   position: relative;
   top: -64px;
+
   a {
     display: inline-block;
     flex: 1;
     margin: 0 16px;
+    min-width: 160px;
+  }
+
+  a:hover {
+    transform: scale(1.05);
+    transition: all 0.1s ease-in;
   }
 
   a img {
     width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    position: static;
+    a {
+      margin: 0;
+    }
   }
 `;
 
@@ -140,7 +162,7 @@ const LandingPage = (props) => {
         <Benefits>
           <Benefit
             title="Por el medio ambiente"
-            text="Para el cultivo de las plantas usamos prácticas amigables con el ambiente donde se eliminia el uso de productos químicos y s ereduce la erosión del suelo"
+            text="Para el cultivo de las plantas usamos prácticas amigables con el ambiente donde se eliminia el uso de productos químicos y se   reduce la erosión del suelo"
             icon="recycle"
           ></Benefit>
           <Benefit
@@ -177,9 +199,7 @@ const LandingPage = (props) => {
         </Networks>
       </Section>
 
-      <Section accent>
-        <Footer></Footer>
-      </Section>
+      <Footer></Footer>
     </Div>
   );
 };

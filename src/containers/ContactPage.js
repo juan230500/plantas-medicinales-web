@@ -16,6 +16,7 @@ const Div = styled.div`
 
 const FormContainer = styled.div`
   width: 50%;
+  padding: 16px;
   border-radius: ${LAYOUT.borderRadius};
   background-color: ${COLORS.white};
   box-shadow: ${LAYOUT.StdShadow};
@@ -38,10 +39,13 @@ const Button = styled.button`
 `;
 
 const FormItem = styled.div`
-  margin: 8px;
-  padding: 8px;
+  margin: 8px 0;
   display: flex;
   flex-direction: column;
+`;
+
+const Note = styled.p`
+  text-align: justify;
 `;
 
 const ContactPage = (props) => {
@@ -66,7 +70,13 @@ const ContactPage = (props) => {
   return (
     <Div>
       <FormContainer>
-        <h1 style={{ textAlign: "center" }}>Contactanos</h1>
+        <Note>
+          Sabemos que nuestros clientes mayoristas tienen necesidades especiales
+          de productos y presentaciones por lo que nos gustaría atenderle
+          personalemente. Por favor llene el siguiente formulario y le estaremos
+          contactando lo más pronto posible
+        </Note>
+        <h1 style={{ textAlign: "center" }}>Formulario de contacto</h1>
         <form>
           <FormItem>
             <label>Tu nombre</label>

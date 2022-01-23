@@ -8,7 +8,10 @@ import img4 from "../assets/images/Info/img4.jpeg";
 import intro from "../assets/videos/intro.mp4";
 
 const Video = styled.video`
-  width: 450px;
+  width: 100%;
+  height: 360px;
+  display: block;
+  margin: auto;
   border-radius: ${LAYOUT.borderRadius};
 
   @media (max-width: 768px) {

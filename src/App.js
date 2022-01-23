@@ -1,4 +1,5 @@
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import LandingPage from "./containers/LandingPage";
 import InfoPage from "./containers/InfoPage";
@@ -7,6 +8,7 @@ import NavBar from "./components/UI/NavBar";
 import { Route, BrowserRouter, Redirect, Switch } from "react-router-dom";
 import ReactGA from "react-ga";
 import { useEffect } from "react";
+import TeaPage from "./containers/TeaPage";
 
 const App = (props) => {
   useEffect(() => {
@@ -18,22 +20,25 @@ const App = (props) => {
 
   return (
     <BrowserRouter>
-      <div>
+      <div className="App">
         <NavBar></NavBar>
         <Switch>
           <Route path="/" exact>
-            <LandingPage></LandingPage>
+            <LandingPage />
           </Route>
           <Route path="/about">
-            <InfoPage></InfoPage>
+            <InfoPage />
+          </Route>
+          <Route path="/tea">
+            <TeaPage />
           </Route>
           <Route path="/contact">
-            <ContactPage></ContactPage>
+            <ContactPage />
           </Route>
           <Route path="/store" exact>
-            <LandingPage></LandingPage>
+            <LandingPage />
           </Route>
-          <Redirect to="/"></Redirect>
+          <Redirect to="/" />
         </Switch>
       </div>
     </BrowserRouter>
