@@ -3,10 +3,14 @@ import { COLORS } from "../../Constants";
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/manu blanco.png";
 import { Dropdown } from "react-bootstrap";
+import { Menu, MenuItem } from "@mui/material";
+import { useState } from "react";
+import LinkGroup from "./LinkGroup";
 
 const Div = styled.div`
   background-color: ${COLORS.primary};
   padding: 8px;
+  padding-right: 96px;
   display: flex;
   align-items: flex-end;
   gap: 48px;
@@ -40,37 +44,54 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const SpecialLink = styled(StyledLink)`
-  display: flex;
-  color: black;
-  font-size: 16px;
-  font-family: "Lato", sans-serif;
-  &:hover {
-    color: black;
-  }
-`;
-
 const NavBar = (props) => {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = !!anchorEl;
+
+  const handleClose = () => {
+    setAnchorEl();
+  };
+
   return (
     <Div>
       <StyledLink accent className="logo" to="/">
         <img src={logo} alt="logo"></img>
       </StyledLink>
-      <Dropdown>
-        <Dropdown.Toggle variant="success">
-          <StyledLink accent>Té 101</StyledLink>
-        </Dropdown.Toggle>
-        <Dropdown.Menu>
-          <SpecialLink to="/tea/inf">Infusiones</SpecialLink>
-          <SpecialLink to="/tea/proc">Proceso</SpecialLink>
-        </Dropdown.Menu>
-      </Dropdown>
-      <StyledLink accent to="/about">
-        Acerca de nosotros
-      </StyledLink>
-      <StyledLink accent to="/contact">
-        Ventas al por mayor
-      </StyledLink>
+      <LinkGroup
+        title="Productos"
+        links={[
+          { to: "/", name: "Infusiones" },
+          { to: "/", name: "Té" },
+        ]}
+      ></LinkGroup>
+      <LinkGroup
+        title="Accesorios"
+        links={[
+          { to: "/", name: "Tazas" },
+          { to: "/", name: "Botelas" },
+          { to: "/", name: "Infusores" },
+          { to: "/", name: "Bolsas" },
+          // { to: "/", name: "Jabones" },
+          // { to: "/", name: "Velas" },
+          // { to: "/", name: "Aroma ambiental" },
+          // { to: "/", name: "Fumables" },
+        ]}
+      ></LinkGroup>
+      <LinkGroup
+        title="Blog"
+        links={[
+          { to: "/tea/about", name: "Acerca de nosotros" },
+          { to: "/tea/inf", name: "Infusiones" },
+          { to: "/tea/proc", name: "Proceso" },
+        ]}
+      ></LinkGroup>
+      <LinkGroup
+        title="Ofertas"
+        links={[
+          { to: "/contact", name: "Ventas al por mayor" },
+          { to: "/", name: "Cajas de regalo" },
+        ]}
+      ></LinkGroup>
     </Div>
   );
 };
